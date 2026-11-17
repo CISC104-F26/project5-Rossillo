@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cmr20d0sg3v6q"]
+
+[ext_resource type="Script" uid="uid://dflkn7ktino2m" path="res://evil_triangle.gd" id="1_7tqkr"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_w3am7"]
+
+[node name="Evil Triangle" type="Area2D" unique_id=264700147]
+script = ExtResource("1_7tqkr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=913950450]
+rotation = 3.1415927
+scale = Vector2(60, 60)
+mesh = SubResource("PrismMesh_w3am7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1124960478]
+polygon = PackedVector2Array(0, -30, 30, 29, -30, 29)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bwtih8fn3a4dw"]
+
+[ext_resource type="Script" uid="uid://bu7dw6mh2j4ns" path="res://obstacle_block.gd" id="1_myv0v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v67jn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3am7"]
+size = Vector2(60, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhk28"]
+size = Vector2(1, 54)
+
+[node name="Obstacle Block" type="StaticBody2D" unique_id=1081868424]
+script = ExtResource("1_myv0v")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=2071718242]
+scale = Vector2(60, 60)
+mesh = SubResource("BoxMesh_v67jn")
+
+[node name="Safe Space" type="CollisionShape2D" parent="." unique_id=1450763928]
+position = Vector2(0, -29)
+shape = SubResource("RectangleShape2D_w3am7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=196678770]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=537344882]
+position = Vector2(-29.5, 0)
+shape = SubResource("RectangleShape2D_dhk28")
+debug_color = Color(0.97685426, 0.14505893, 0.12300054, 0.41960785)

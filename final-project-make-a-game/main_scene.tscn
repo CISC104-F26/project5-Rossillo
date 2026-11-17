@@ -1,3 +1,35 @@
 [gd_scene format=3 uid="uid://bu8ppkrot11wm"]
 
+[ext_resource type="PackedScene" uid="uid://dhk76uhuwtrnr" path="res://floor.tscn" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://1kgyqbyewktj" path="res://character_body_2d.tscn" id="2_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://bwtih8fn3a4dw" path="res://obstacle_block.tscn" id="3_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://c4ai4aaf3qhw8" path="res://game_start_menu.tscn" id="4_d5x1h"]
+[ext_resource type="PackedScene" uid="uid://ctcknvqd3i5vb" path="res://game_over_menu.tscn" id="5_8mm7a"]
+[ext_resource type="PackedScene" uid="uid://cmr20d0sg3v6q" path="res://evil_triangle.tscn" id="6_hq1ik"]
+
 [node name="Main Scene" type="Node2D" unique_id=842854469]
+
+[node name="Floor" parent="." unique_id=1261335429 instance=ExtResource("1_2c62f")]
+position = Vector2(576, 648)
+
+[node name="Player Character" parent="." unique_id=168353114 instance=ExtResource("2_gyfs4")]
+position = Vector2(142, 554)
+
+[node name="Obstacle Block" parent="." unique_id=1081868424 instance=ExtResource("3_gyfs4")]
+position = Vector2(1090, 604)
+movement_speed = 200
+
+[node name="Game Start Menu" parent="." unique_id=956695853 instance=ExtResource("4_d5x1h")]
+
+[node name="Game Over Menu" parent="." unique_id=705341871 instance=ExtResource("5_8mm7a")]
+visible = false
+
+[node name="Evil Triangle" parent="." unique_id=264700147 instance=ExtResource("6_hq1ik")]
+position = Vector2(802, 603)
+movement_speed = 200
+
+[connection signal="body_entered" from="Obstacle Block/Area2D" to="Player Character" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Evil Triangle" to="Player Character" method="_on_evil_triangle_body_entered"]
+
+[editable path="Obstacle Block"]
+[editable path="Evil Triangle"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ctcknvqd3i5vb"]
+
+[ext_resource type="Script" uid="uid://ci4r4n6j8q4ks" path="res://game_over_menu.gd" id="1_14ib6"]
+
+[node name="Game Over Menu" type="Control" unique_id=705341871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_14ib6")
+
+[node name="Label" type="Label" parent="." unique_id=861430204]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 62.0
+offset_right = 1020.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER YEAAAAAAAAAAAHHHH!"
+
+[node name="Restart" type="Button" parent="." unique_id=956043706]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 182.0
+offset_right = 596.0
+offset_bottom = 213.0
+text = "Play Again?"
+
+[node name="Quit" type="Button" parent="." unique_id=668013412]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 300.0
+offset_right = 571.0
+offset_bottom = 331.0
+text = "Quit?"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

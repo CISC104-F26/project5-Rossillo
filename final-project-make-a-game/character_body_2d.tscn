@@ -1,15 +1,43 @@
 [gd_scene format=3 uid="uid://1kgyqbyewktj"]
 
-[ext_resource type="Texture2D" uid="uid://cjvlkx0d4uk7f" path="res://icon.svg" id="1_f50pn"]
+[ext_resource type="Script" uid="uid://dx4gtu7qr5vom" path="res://character_body_2d.gd" id="1_f50pn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v67jn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3am7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dhk28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v67jn"]
-size = Vector2(128, 128)
+size = Vector2(83.669304, 84.49968)
 
 [node name="Player Character" type="CharacterBody2D" unique_id=168353114]
+script = ExtResource("1_f50pn")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1791194305]
-texture = ExtResource("1_f50pn")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1794150414]
+modulate = Color(1, 1, 0.07450981, 1)
+scale = Vector2(60, 60)
+mesh = SubResource("BoxMesh_v67jn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1126111412]
-position = Vector2(-1, 0)
+[node name="Eye" type="MeshInstance2D" parent="MeshInstance2D" unique_id=418816108]
+modulate = Color(0.039215688, 1, 1, 1)
+position = Vector2(-0.19531256, -0.2421875)
+scale = Vector2(0.09765628, 0.10546875)
+mesh = SubResource("BoxMesh_w3am7")
+
+[node name="Eye2" type="MeshInstance2D" parent="MeshInstance2D" unique_id=1362321040]
+modulate = Color(0.039215688, 1, 1, 1)
+position = Vector2(0.20312499, -0.2421875)
+scale = Vector2(0.09765626, 0.10546875)
+mesh = SubResource("BoxMesh_w3am7")
+
+[node name="Mouth" type="MeshInstance2D" parent="MeshInstance2D" unique_id=957084681]
+modulate = Color(0.039215688, 1, 1, 1)
+position = Vector2(0, 0.1953125)
+scale = Vector2(0.25000003, 0.05078125)
+mesh = SubResource("BoxMesh_dhk28")
+
+[node name="Player hit box" type="CollisionShape2D" parent="." unique_id=1126111412]
+position = Vector2(-0.08493519, -0.12618208)
+scale = Vector2(0.71913904, 0.70707524)
 shape = SubResource("RectangleShape2D_v67jn")
